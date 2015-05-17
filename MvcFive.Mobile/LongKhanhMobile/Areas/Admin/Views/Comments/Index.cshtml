@@ -1,0 +1,138 @@
+﻿@model PagedList.IPagedList<CheapShop.Models.Comment>
+
+@{
+    ViewBag.Title = "Quản lý comments";
+}
+
+<h2>Trang quản lý comments</h2>
+
+<div class="ibox-content">
+    <div>
+        <div class="feed-activity-list">
+            @foreach (var cmd in Model)
+            {
+                <div class="feed-element">
+                    <a href="#" class="pull-left">
+                        <img alt="image" class="img-circle" src="@Url.Content(cmd.Product.Thumbnail)">
+                    </a>
+                    <div class="media-body">
+                        <h3 class="@cmd.CommentId">@cmd.Subject</h3>
+                        <small class="pull-right text-navy">ngày gửi: @cmd.PostedTime</small><br/>
+                        <div class="@cmd.CommentId"><strong>@cmd.Content</strong>. <br>
+                        </div>
+                        @Html.HiddenFor(model => cmd.CommentId)
+
+                        <small class="text-muted">Today: @DateTime.Now</small>
+                        <div class="actions">
+                            <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Thích </a>
+                            <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Love</a>
+                            <a class="btn btn-xs btn-info"><i class="fa fa-remove"></i> Xóa</a>
+
+                            <!--Nếu chưa có nhân viên trả lời thì hiện nút trả lời-->
+                            @if (cmd.Replier != null)
+                            {
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">ngày trả lời: @cmd.ReplyTime</small><br/>
+                                    <strong class="@cmd.CommentId">@cmd.ReplyContent</strong>. <br>
+                                    <a class="btn btn-xs btn-info" id="@cmd.CommentId" data-target="#myModal" data-toggle="modal" data-url="1"><i class="fa fa-reply"></i> Sửa trả lời</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <strong class="@cmd.CommentId" type="hidden"></strong>
+                                <a class="btn btn-xs btn-info" id="@cmd.CommentId" data-target="#myModal" data-toggle="modal" data-url="2"><i class="fa fa-edit"></i> Trả lời</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--popup form reply-->
+            <div style="display: none;" class="modal inmodal in" id="myModal" tabindex="-1" role="dialog" aria-hidden="false">
+                <div class="modal-backdrop  in"></div>
+                <div class="modal-dialog">
+                    <div class="modal-content animated bounceInRight">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <i class="fa fa-laptop modal-icon"></i>
+                            <h4 class="modal-title" id="popupTitle">Modal title</h4>
+                        </div>
+                        <div class="modal-body" id="popupContent">
+                            <p>
+                                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged.
+                            </p>
+                            <div class="form-group">
+                                <label>Nội dung: </label>
+                                <textarea class="form-control" id="popupReply" placeholder="Nhập nội dung">
+                                    
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="btnSave">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end popup form reply-->
+
+        </div>
+        @*<button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>*@
+        <!--Phan hien thi phan trang-->
+        <div class="row">
+            <div class="col-md-6 m-b-sm text-center">
+                Hiển thị
+                @(Html.DropDownList("PageSize", null, new { @class = "input-sm", id = "pageSelect" }))
+                mẩu tin
+            </div>
+
+            <div class="col-md-6 text-center">
+                @(Html.PagedListPager(Model, page => Url.Action("Index", new
+                          {
+                              page,
+                              pageSize = ViewBag.CurrentPageSize,
+                          }), PagedListRenderOptions.ClassicPlusFirstAndLast))
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $replyContent;
+            var $edit;
+            var $id;
+
+            $('[data-toggle="modal"]').each(function() {
+                var $this = $(this);
+                $this.click(function() {
+                    $id = $this.attr('id');
+                    var $content = $("div." + $id).text();
+                    var $subject = $("h3." + $id).text();
+
+                    $('h4#popupTitle').text($subject);
+                    $('div#popupContent > p').text($content);
+                    $edit = $this.attr('data-url');
+
+                    if ($edit=="1") {
+                        $replyContent = $('strong.' + $id).text();
+                        $('#popupReply').text($replyContent);
+                    }
+                });
+            });
+
+            $('#btnSave').click(function() {
+                if (!$edit=="1") {
+                    $('strong.' + $id).remove('type');
+                }
+                $('strong.' + $id).text("");
+
+                var $txtReply = $('#popupReply').val();
+                $('strong.' + $id).append("<div class=" +"media-body"+"><small class="+"pull-right text-navy>" +"</small><br/>"+ $txtReply +"</div>");
+            });
+        });
+    </script>
+}

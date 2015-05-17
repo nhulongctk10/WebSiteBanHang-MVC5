@@ -1,0 +1,106 @@
+﻿@model PagedList.IPagedList<Picture>
+
+@{
+    ViewBag.Title = "Quản lý hình ảnh";
+}
+
+@section pluginStyles
+{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/AdmGrid.css" rel="stylesheet" />
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Danh sách hình ảnh</h5>
+                <div class="ibox-tools">
+
+                    @(Html.Bootstrap()
+                          .ActionLink("Thêm hình mới", "Create")
+                          .Class("btn btn-primary btn-xs")
+                          .AppendIcon("fa fa-plus"))
+                </div>
+            </div>
+
+            <div class="ibox-content p-sm">
+                <!--Phan hien thi noi dung-->
+                <table id="tblsuppliers" class="table table-responsive table-bordered table-hover">
+                    <tr>
+                        <td>@Html.CheckBox("actived", false, new { id = "actived" })</td>
+                        <th>Tiêu đề</th>
+                        <th  class="hidden-sm hidden-xs">Hình</th>
+                        <th  class="hidden-sm hidden-xs">Thứ tự hiển thị</th>
+                        <th>Đã xóa</th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.CheckBox("actived", false, new { @class = "actived", supplierId = item.PictureId })</td>
+                            <td>
+                                <strong>@Html.DisplayFor(modelItem => item.Caption)</strong><br/>
+                                <small>@Html.DisplayFor(modelItem => item.Path)</small>
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                <a href="@Url.Action("Details", new {id = item.PictureId})" title="Xem chi tiết">
+                                    <img src="@Url.Content(item.Path)" alt="@item.Caption" width="100" />
+                                </a>
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                               @Html.DisplayFor(modelItem => item.OrderNo)
+                            </td>
+                            <td class="td_toggle">
+                                <button type="button"
+                                        class="toggle @(item.Actived.ToString().ToLower())"
+                                        data-toggle-state="true" data-url="@Url.Action("UpdateToggle")"
+                                        data-args="Actived_@(item.Actived.ToString().ToLower())_@(item.PictureId)"></button>
+                            </td>
+
+                            <td>
+                                @(Html.Bootstrap()
+                                      .ActionLink("", "Edit")
+                                      .RouteValues(new { id = item.PictureId })
+                                      .Title("Cập nhật")
+                                  .AppendIcon("fa fa-pencil"))
+
+                                @(Html.Bootstrap()
+                                      .ActionLink("", "Detail")
+                                      .RouteValues(new { id = item.PictureId })
+                                      .Title("Xem chi tiết")
+                                      .AppendIcon("fa fa-info-circle"))
+
+                                @(Html.Bootstrap()
+                                      .ActionLink("", "Delete")
+                                      .RouteValues(new { id = item.PictureId })
+                                      .Title("Xóa hình")
+                                  .AppendIcon("fa fa-times"))
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <!--Phan hien thi phan trang-->
+                <div class="row">
+                    <div class="col-md-6 m-b-sm text-center">
+                        Hiển thị
+                        @(Html.DropDownList("PageSize", null, new { @class = "input-sm", id = "pageSelect" }))
+                        mẩu tin
+                    </div>
+
+                    <div class="col-md-6 text-center">
+                        @(Html.PagedListPager(Model, page => Url.Action("Index", new
+                          {
+                              page,
+                              pageSize = ViewBag.CurrentPageSize,
+                              Keyword = ViewBag.Keyword,
+                              status = ViewBag.status
+
+                          }), PagedListRenderOptions.ClassicPlusFirstAndLast))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

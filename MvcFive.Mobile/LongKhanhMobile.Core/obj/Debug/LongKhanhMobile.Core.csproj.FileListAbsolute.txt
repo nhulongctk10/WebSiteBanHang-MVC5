@@ -1,0 +1,5 @@
+D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\bin\Debug\LongKhanhMobile.Core.dll
+D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\bin\Debug\LongKhanhMobile.Core.pdb
+D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.dll
+D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.pdb
+D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.csprojResolveAssemblyReference.cache

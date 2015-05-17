@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongKhanhMobile", "LongKhanhMobile\LongKhanhMobile.csproj", "{2CE02D76-CF95-4F1B-9A71-FED344C86D02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongKhanhMobile.Core", "LongKhanhMobile.Core\LongKhanhMobile.Core.csproj", "{412BCA2F-B77B-4AB8-807C-FF72F0D2C67F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CE02D76-CF95-4F1B-9A71-FED344C86D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE02D76-CF95-4F1B-9A71-FED344C86D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE02D76-CF95-4F1B-9A71-FED344C86D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE02D76-CF95-4F1B-9A71-FED344C86D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412BCA2F-B77B-4AB8-807C-FF72F0D2C67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412BCA2F-B77B-4AB8-807C-FF72F0D2C67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412BCA2F-B77B-4AB8-807C-FF72F0D2C67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412BCA2F-B77B-4AB8-807C-FF72F0D2C67F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,350 @@
+﻿@model CheapShop.Areas.Admin.Models.ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "Trang hiển thị chi tiết sản phẩm";
+}
+
+<h2>Chi tiết sản phẩm <b>@Model.Product.Name</b></h2>
+<div class="test">
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a aria-expanded="true" data-toggle="tab" href="#tab-1">
+            <i class="fa fa-info-circle"></i> Thông tin SP
+        </a>
+    </li>
+    <li class="">
+        <a aria-expanded="false" data-toggle="tab" href="#tab-2">
+            <i class="fa fa-comments"></i> Bình luận
+        </a>
+    </li>
+    <li class="">
+        <a aria-expanded="false" data-toggle="tab" href="#tab-3">
+            <i class="fa fa-picture-o"> </i>Hình ảnh
+        </a>
+    </li>
+    <li class="">
+        <a aria-expanded="false" data-toggle="tab" href="#tab-4">
+            <i class="fa fa-bar-chart-o"></i> Thống kê
+        </a>
+    </li>
+    <li class="">
+        <a aria-expanded="false" data-toggle="tab" href="#tab-5">
+            <i class="fa fa-history"></i> Nhật ký cập nhật
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+<div class="tab-pane active" id="tab-1">
+    <!--Thông tin SP-->
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Tên SP:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.Name
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Tên khác:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.Alias
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Ảnh Thumbnail:</strong>
+        </div>
+        <div class="col-sm-9">
+            <img src="@Url.Content(Model.Product.Thumbnail)" width="400" height="400"/>
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Số hiệu SP:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.ProductCode
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Giới thiệu:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.ShortIntro
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Mô tả:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.Description
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Đơn vị:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.QtyPerUnit
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Giá:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.Price
+        </div>
+    </div>
+
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Số lượng:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.Quantity
+        </div>
+    </div>
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Đã xóa:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.Actived
+        </div>
+    </div>
+    <div class="row border-bottom">
+        <div class="col-sm-3"><strong>Nhà Cung Cấp:</strong>
+        </div>
+        <div class="col-sm-9">
+            @Model.Product.SupplierId
+        </div>
+    </div>
+</div>
+<div class="tab-pane " id="tab-2">
+    <!--Bình luân-->
+    <div class="ibox-content" id="ibox-content">
+        <div id="vertical-timeline" class="vertical-container dark-timeline">
+
+            @if (@Model.Comment != null)
+            {
+                foreach (var cmd in @Model.Comment)
+                {
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="vertical-timeline-content">
+                            <h2>@cmd.Subject</h2>
+                            <p> @cmd.Content</p>
+                            @if (cmd.ReplyContent != null)
+                            {
+                                <h3>
+                                    <b>Trả lời</b><br/>
+                                </h3>
+                                <p>@cmd.ReplyContent</p>
+                                //@Html.ActionLink("Sửa nội dung", "EditComment", "Comment", new { id = @cmd.CommentId, @class = "btn btn-sm btn-info" })
+                                <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#mymodal" id="@cmd.CommentId">Sửa nội dung</a>
+                            }
+                            else
+                            {
+                                //@Html.ActionLink("Trả lời", "Delete", "Comment", new { id = @cmd.CommentId, @class = "btn btn-sm btn-primary" })
+                                <a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#mymodal">Trả lời</a>
+                            }
+                            @Html.ActionLink("Xoá", "Reply", "Comment", new {id = @cmd.CommentId, @class = "btn btn-sm btn-danger"})
+
+                            <span class="vertical-date">
+                                        Ngày giờ gửi<br>
+                                        <small>@cmd.PostedTime</small>
+                                    </span>
+                        </div>
+                    </div>
+                }
+            }
+
+            <!---Poppup tra loi-->
+            <div style="display: none;" class="modal inmodal in" id="mymodal" tabindex="-1" role="dialog" aria-hidden="false">
+                <div class="modal-backdrop  in"></div>
+                <div class="modal-dialog">
+                    <div class="modal-content animated bounceInRight">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <i class="fa fa-laptop modal-icon"></i>
+                            <h4 class="modal-title">Subject</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <strong>Content</strong>
+                            </p>
+                            <div class="form-group">
+                                <label>Trả lời:</label> <textarea id="txtTraLoi" class="form-control" placeholder="Nhập nội dung trả lời"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tab-3" class="tab-pane center-block">
+    <!--Hình ảnh-->
+    <div style="margin: 0 auto !important">
+        <div class="ibox float-e-margins">
+            <div class="carousel slide" id="carousel2">
+                <ol class="carousel-indicators">
+                    <li data-slide-to="0" data-target="#carousel2" class=""></li>
+                    <li class="active" data-slide-to="1" data-target="#carousel2"></li>
+                    <li data-slide-to="2" data-target="#carousel2" class=""></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img alt="image" class="img-responsive" src="@Url.Content(Model.Picture[0].Path)">
+                        <div class="carousel-caption">
+                            <p>@Model.Picture[0].Caption</p>
+                        </div>
+                    </div>
+                    @for (int i = 1; i < @Model.Picture.Count; i++)
+                    {
+                        <div class="item">
+                            <img alt="image" class="img-responsive" src="@Url.Content(@Model.Picture[i].Path)">
+                            <div class="carousel-caption">
+                                <p>@Model.Picture[i].Caption</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <a data-slide="prev" href="#carousel2" class="left carousel-control">
+                    <span class="icon-prev"></span>
+                </a>
+                <a data-slide="next" href="#carousel2" class="right carousel-control">
+                    <span class="icon-next"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="ibox-tools">
+        @(Html.Bootstrap()
+              .ActionLink("Thêm Hình mới", "Create")
+              .Class("btn btn-primary btn-xs")
+              .AppendIcon("fa fa-plus fa-2x"))
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th></th>
+            <th>Đường dẫn</th>
+            <th>Đã xóa</th>
+            <th>Thứ tự</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var pt in @Model.Picture)
+        {
+            <tr>
+                <td>@Html.CheckBox(pt.PictureId.ToString())</td>
+                <td>
+                    <a href="#" class="thumbnail">
+                        <img src="@Url.Content(pt.Path)" class="thumbnail" width="100" height="100"/>
+                    </a>
+                </td>
+                <td>
+                    @pt.Path
+                </td>
+                <td>@pt.Actived</td>
+                <td></td>
+                <td>
+                    @(Html.Bootstrap()
+                          .ActionLink("", "Delete", "Picture")
+                          .RouteValues(new {id = @pt.PictureId})
+                          .Title("Xóa hình")
+                          .AppendIcon("fa fa-times fa-2x"))
+                    @(Html.Bootstrap()
+                          .ActionLink("", "Edit", "Picture")
+                          .RouteValues(new {id = @pt.PictureId})
+                          .Title("Cập nhật thông tin SP")
+                          .AppendIcon("fa fa-pencil-square-o fa-2x"))
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+
+</div>
+<div id="tab-4" class="tab-pane">
+    @if (Model.ProductProfile != null)
+    {
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Mã SP</th>
+                <th>Lượt xem</th>
+                <th>Số lượt bình chọn</th>
+                <th>Tổng điểm</th>
+                <th>Đã bán</th>
+                <th>Điểm đánh giá TB</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>@Model.ProductProfile.ProductId</td>
+                <td>@Model.ProductProfile.ViewCount</td>
+                <td>@Model.ProductProfile.VoteCount</td>
+                <td>@Model.ProductProfile.TotalScore</td>
+                <td>@Model.ProductProfile.Sales</td>
+                <td>@Model.ProductProfile.AvgScore</td>
+            </tr>
+            </tbody>
+        </table>
+    }
+</div>
+<div id="tab-5" class="tab-pane">
+    <!--Nhật ký cập nhật-->
+    <div class="ibox-content">
+        <div class="vertical-container dark-timeline">
+            <div class="vertical-timeline-block">
+                <div class="vertical-timeline-icon navy-bg">
+                    <i class="fa fa-briefcase"></i>
+                </div>
+                @foreach (var ph in @Model.ProductHistory)
+                {
+                    <div class="vertical-timeline-content">
+                        <h2>@ph.HistoryAction</h2>
+
+                        <span class="vertical-date">
+                                    Ngày giờ<br>
+                                    <small>@ph.ActionTime</small>
+                                </span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+@section pluginScripts
+{
+    <script src=""></script>
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.vertical-timeline-content').each(function () {
+                var $this = $(this);
+            });
+        });
+    </script>
+}

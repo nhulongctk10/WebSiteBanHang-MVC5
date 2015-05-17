@@ -1,0 +1,73 @@
+﻿@using LongKhanhMobile.Models
+@model LongKhanhMobile.Models.LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<!--Login / Register-->
+<section class="log-reg container">
+    <h2>Đăng nhập hoặc đăng ký</h2>
+
+    <div class="row">
+        <section id="loginForm">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group group">
+                        @Html.LabelFor(m => m.UserName)
+
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Enter your username" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        <a class="help-link" href="#">Forgot email?</a>
+                    </div>
+                    <div class="form-group group">
+                        @Html.LabelFor(m => m.Password)
+
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        <a class="help-link" href="#">Forgot password?</a>
+                    </div>
+                    <div class="checkbox" style="min-height: 0em !important;">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Log in" class="btn btn-default clear col-md-2" />
+                    </div>
+                    <br />
+                }
+                <div class="social-login">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
+                </div>
+            </div>
+        </section>
+        <!--Registration-->
+        <div class="col-lg-7 col-md-7 col-sm-7">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal registr-form", role = "form" }))
+            {
+                <div class="form-group group">
+                    <label for="rf-email">Email</label>
+                    <input type="email" class="form-control" name="rf-email" id="rf-email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-password">Password</label>
+                    <input type="password" class="form-control" name="rf-password" id="rf-password" placeholder="Enter password" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-password-repeat">Repeat password</label>
+                    <input type="password" class="form-control" name="rf-password-repeat" id="rf-password-repeat" placeholder="Repeat password" required>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="remember"> I have read and agree with the terms</label>
+                </div>
+                <input class="btn btn-success" type="submit" value="Register">
+            }
+        </div>
+    </div>
+</section><!--Login / Register Close-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

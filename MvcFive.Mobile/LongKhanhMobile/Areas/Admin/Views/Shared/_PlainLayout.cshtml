@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewBag.Title LongKhanh Mobile</title>
+
+    <!--Bootstrap and font-->
+    @Styles.Render("~/Content/admbootstrap")
+
+    <!--Plugin styles-->
+    @RenderSection("pluginStyles", false)
+
+    <!--Custom styles for this site-->
+    @Styles.Render("~/Content/admstyle")
+
+    <!--Support older browsers-->
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="gray-bg">
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    @RenderBody()
+</div>
+
+    <!-- Main scripts, including jquery, bootstrap, metisMenu, slimScroll-->
+    @Scripts.Render("~/bundles/admmainjs")
+
+    <!-- Other custom scripts-->
+    @RenderSection("scripts", false)
+</body>
+</html>
+

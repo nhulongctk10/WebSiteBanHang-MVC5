@@ -1,0 +1,178 @@
+﻿<!--Header-->
+<header data-offset-top="500" data-stuck="600">
+    <!--data-offset-top is when header converts to small variant and data-stuck when it becomes visible. Values in px represent position of scroll from top. Make sure there is at least 100px between those two values for smooth animation-->
+    <!--Search Form-->
+    <form class="search-form closed" method="get" role="form" autocomplete="off">
+        <div class="container">
+            <div class="close-search"><i class="fa fa-times"></i></div>
+            <div class="form-group">
+                <label class="sr-only" for="search-hd">Tìm kiếm sản phẩm</label>
+                <input type="text" class="form-control" name="search-hd" id="search-hd" placeholder="Nhập từ khóa cần tìm">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+
+    <!--Split Background-->
+    <div class="left-bg"></div>
+    <div class="right-bg"></div>
+
+    <div class="container">
+        <a class="logo" href="#"><img src="~/Images/logo.png" alt="Bushido" /></a>
+
+        <!--Mobile Menu Toggle-->
+        <div class="menu-toggle"><i class="fa fa-list"></i></div>
+        <div class="mobile-border"><span></span></div>
+
+        <!--Main Menu-->
+        <nav class="menu">
+            <ul class="main">
+                <li class="has-submenu">
+                    <a href="index.html">Trang chủ<i class="fa fa-chevron-down"></i></a><!--Class "has-submenu" for proper highlighting and dropdown-->
+                    @*<ul class="submenu">
+                        <li><a href="index.html">Home - Slideshow</a></li>
+                        <li><a href="home-fullscreen.html">Home - Fullscreen Slider</a></li>
+                        <li><a href="home-showcase.html">Home - Product Showcase</a></li>
+                        <li><a href="home-categories.html">Home - Categories Slider</a></li>
+                        <li><a href="home-offers.html">Home - Special Offers</a></li>
+                    </ul>*@
+                </li>
+                <li class="has-submenu">
+                    <a href="shop-filters-left-3cols.html">Khuyến mãi<i class="fa fa-chevron-down"></i></a>
+                    @*<ul class="submenu">
+                        <li><a href="shop-filters-left-3cols.html">Shop - Filters Left 3 Cols</a></li>
+                        <li><a href="shop-filters-left-2cols.html">Shop - Filters Left 2 Cols</a></li>
+                        <li><a href="shop-filters-right-3cols.html">Shop - Filters Right 3 Cols</a></li>
+                        <li><a href="shop-filters-right-2cols.html">Shop - Filters Right 2 Cols</a></li>
+                        <li><a href="shop-no-filters-4cols.html">Shop - No Filters 4 Cols</a></li>
+                        <li><a href="shop-no-filters-3cols.html">Shop - No Filters 3 Cols</a></li>
+                        <li><a href="shop-single-item-v1.html">Shop - Single Item Vers 1</a></li>
+                        <li><a href="shop-single-item-v2.html">Shop - Single Item Vers 2</a></li>
+                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout Page</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                    </ul>*@
+                </li>
+                <li class="has-submenu">
+                    <a href="blog-sidebar-right.html">Giới thiệu<i class="fa fa-chevron-down"></i></a>
+                    @*<ul class="submenu">
+                        <li><a href="blog-sidebar-left.html">Blog - Sidebar Left</a></li>
+                        <li><a href="blog-sidebar-right.html">Blog - Sidebar Right</a></li>
+                        <li><a href="blog-single.html">Blog - Single Post</a></li>
+                    </ul>*@
+                </li>
+                <li class="has-submenu">
+                    <a href="#">Liên hệ<i class="fa fa-chevron-down"></i></a>
+                    @*<ul class="submenu">
+                        <li><a href="register.html">Login / Registration</a></li>
+                        <li><a href="account-personal-info.html">Account: Personal Info<span class="label">NEW</span></a></li>
+                        <li><a href="account-addresses.html">Account: Addresses<span class="label">NEW</span></a></li>
+                        <li><a href="order-history.html">Orders History<span class="label">NEW</span></a></li>
+                        <li><a href="order-tracking.html">Order Tracking<span class="label">NEW</span></a></li>
+                        <li><a href="delivery-info.html">Delivery Info<span class="label">NEW</span></a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                        <li><a href="404.html">404 Page</a></li>
+                        <li><a href="support.html">Support Page</a></li>
+                        <li><a href="cs-page.html">Components &amp; Styles</a></li>
+                    </ul>*@
+                </li>
+                <li class="hide-sm"><a href="support.html">Hỗ Trợ</a></li>
+                <li class="hide-sm"><a href="support.html">Bảo Hành</a></li>
+            </ul>
+
+            <ul class="catalog">
+                <li class="has-submenu">
+                    <a href="shop-filters-left-3cols.html">Điện Thoại<i class="fa fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#">Nokia</a></li>
+                        <li class="has-submenu">
+                            <a href="#">iPhone</a><!--Class "has-submenu" for adding carret and dropdown-->
+                            <ul class="sub-submenu">
+                                <li><a href="#">iPhone 4</a></li>
+                                <li><a href="#">iPhone 4s</a></li>
+                                <li><a href="#">iPhone 5c</a></li>
+                                <li><a href="#">iPhone 5s</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">HTC</a></li>
+                        <li class="has-submenu">
+                            <a href="#">Samsung</a>
+                            <ul class="sub-submenu">
+                                <li><a href="#">Galaxy Note 3</a></li>
+                                <li><a href="#">Galaxy S5</a></li>
+                                <li><a href="#">Galaxy S3 Neo</a></li>
+                                <li><a href="#">Galaxy Gear</a></li>
+                                <li><a href="#">Galaxy S Duos 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">BlackBerry</a></li>
+                        <li class="offer">
+                            <div class="col-1">
+                                <p class="p-style2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="col-2">
+                                <img src="~/Images/menu-drodown-offer.jpg" alt="Special Offer" />
+                                <a class="btn btn-block" href="#"><span>584$</span>Special offer</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Máy Tính Bảng</a></li>
+                <li><a href="#">Phụ Kiện</a></li>
+                <li><a href="#">Máy Cũ</a></li>
+                <li><a href="#">Máy Cũ</a></li>
+                <li><a href="#">TV set</a></li>
+            </ul>
+        </nav>
+
+        <!--Toolbar-->
+        <div class="toolbar group">
+            <button class="search-btn btn-outlined-invert"><i class="fa fa-search-plus fa-3x"></i></button>
+            <div class="middle-btns">
+                <a class="btn-outlined-invert" href="#"><i class="fa fa-thumbs-o-up"></i> <span>Wishlist</span></a>
+                <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in fa-3x"></i> <span>Login</span></a>
+            </div>
+            <div class="cart-btn">
+                <a class="btn btn-outlined-invert" href="#"><i class="fa fa-shopping-cart fa-3x"></i><span>3</span></a>
+
+                <!--Cart Dropdown-->
+                <div class="cart-dropdown">
+                    <span></span><!--Small rectangle to overlap Cart button-->
+                    <div class="body">
+                        <table>
+                            <tr>
+                                <th>Items</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr class="item">
+                                <td><div class="delete"></div><a href="#">Good Joo-Joo Surfb</a></td>
+                                <td><input type="text" value="1"></td>
+                                <td class="price">89 005 $</td>
+                            </tr>
+                            <tr class="item">
+                                <td><div class="delete"></div><a href="#">Good Joo-Joo Item</a></td>
+                                <td><input type="text" value="2"></td>
+                                <td class="price">4 300 $</td>
+                            </tr>
+                            <tr class="item">
+                                <td><div class="delete"></div><a href="#">Good Joo-Joo</a></td>
+                                <td><input type="text" value="5"></td>
+                                <td class="price">84 $</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="footer group">
+                        <div class="buttons">
+                            <a class="btn btn-outlined-invert" href="#"><i class="icon-download"></i>Checkout</a>
+                            <a class="btn btn-outlined-invert" href="#"><i class="icon-shopping-cart-content"></i>To cart</a>
+                        </div>
+                        <div class="total">93 389 $</div>
+                    </div>
+                </div><!--Cart Dropdown Close-->
+            </div>
+        </div><!--Toolbar Close-->
+    </div>
+</header><!--Header Close-->
