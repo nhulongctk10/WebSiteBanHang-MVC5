@@ -3,3 +3,7 @@ D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\bin\De
 D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.dll
 D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.pdb
 D:\Subject\Web Nâng Cao\Source\DeTai\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.csprojResolveAssemblyReference.cache
+D:\Repositories\MVC5\LongKhanhMobile\Source\WebSiteBanHang-MVC5\MvcFive.Mobile\LongKhanhMobile.Core\bin\Debug\LongKhanhMobile.Core.dll
+D:\Repositories\MVC5\LongKhanhMobile\Source\WebSiteBanHang-MVC5\MvcFive.Mobile\LongKhanhMobile.Core\bin\Debug\LongKhanhMobile.Core.pdb
+D:\Repositories\MVC5\LongKhanhMobile\Source\WebSiteBanHang-MVC5\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.dll
+D:\Repositories\MVC5\LongKhanhMobile\Source\WebSiteBanHang-MVC5\MvcFive.Mobile\LongKhanhMobile.Core\obj\Debug\LongKhanhMobile.Core.pdb

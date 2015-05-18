@@ -35,6 +35,7 @@ namespace LongKhanhMobile
 
             bundles.Add(new StyleBundle("~/Content/admstyle").Include(
                 "~/Content/animate.css",
+                "~/Content/style.css",
                 "~/Content/AdmSite.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -56,8 +57,9 @@ namespace LongKhanhMobile
                       "~/Content/masterslider.css",
                        "~/Content/styles.css",
                       "~/Content/color-default.css",
-                      "~/Content/color-switcher.css",
-                       "~/Content/bootstrap.css"));
+                      "~/Content/font-awesome.css",
+                      "~/Content/color-switcher.css", 
+                      "~/Content/Site.css"));
 
         }
     }

@@ -87,7 +87,7 @@ namespace LongKhanhMobile.Controllers
                     if (roles.Count == 0 || (roles.Count == 1 && roles[0] == "Customer"))
                         return RedirectToLocal(returnUrl);
                     else
-                        return RedirectToAction("Index", "Dashboard", new { are = "admin" });
+                        return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
 
                 case SignInStatus.LockedOut:
                     return View("Lockout");

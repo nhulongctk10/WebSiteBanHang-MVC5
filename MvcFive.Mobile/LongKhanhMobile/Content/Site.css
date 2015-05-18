@@ -1,24 +1,58 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+﻿@charset "utf-8";
+.clear { padding: 0; margin: 0; clear: both; height: 0; line-height: 0; }
+img { padding: 0; margin: 0; border: none; }
+ul, li { padding: 0; margin: 0; list-style: none; }
+p, h2 { padding: 0; margin: 0; }
+a { text-decoration: none; }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+/*body { padding: 0; margin: 0; background-color: #FFF; color: #333; font: normal 9px Arial, Verdana, sans-serif; }*/
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
+/********************************************Footer*/
+#footer a { text-decoration: none; color: #FFF; }
+#footer a:hover { text-decoration: underline; color: #FFF; }
+#footer { font: 10pt Arial, Helvetica, sans-serif; }
+#footer p { padding: 0; margin: 0; }
+#footer span { display: block; min-height: 4px; }
+#footer .f1 { background: #f4f4f4; height: 95px; -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.30); -moz-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.30); box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.30); }
+#footer .f1 .wraperHotline { width: 980px; padding-top: 30px; margin: 0 auto; display: block; text-align: center; }
+#footer .f1 .wraperHotline .hotlineLeft { padding-right: 15px; display: inline-block; text-align: right; }
+#footer .f1 .wraperHotline .hotlineLeft span.titleHotline { font-size: 17px; font-weight: bold; color: #333333; text-transform: uppercase; }
+#footer .f1 .wraperHotline .hotlineLeft span.timeHotline { font-size: 12px; color: #666666; }
+#footer .f1 .wraperHotline .hotlineRight { padding-left: 55px; background: url(images/icons/icon_phone.png) no-repeat 15px 0; font-size: 28px; color: #ea1119; font-weight: bold; display: inline-block; }
+#footer .f2 { background: #ffffff; min-height: 200px; padding: 10px 0; }
+#footer .f2 .wraper { width: 980px; margin: auto; }
+#footer .f2 .wraper .contactInfo { display: inline-block; width: auto; margin: auto; margin: 22px 0 0 0; vertical-align: top; padding-right: 3px; }
+#footer .f2 .wraper .contactInfo .tit { background: url(../Images/iconCSKH.png) no-repeat; padding: 8px 0 0 45px; font: bold 15px Arial, Helvetica, sans-serif; height: 30px; line-height: 20px; display: block; }
+#footer .f2 .wraper .contactInfo.hotLine .tit { background: url(../Images/iconTVBH.png) no-repeat; color: #eb1c24; }
+#footer .f2 .wraper .contactInfo.listProduct .tit { background: url(../Images/iconListPro.png) no-repeat; }
+#footer .f2 .wraper .contactInfo .cont { display: block; padding: 7px 0 0 58px; line-height: 20px; font-size: 9pt; color: #444; }
+#footer .f2 .wraper .contactInfo .cont a { color: #333; text-transform: uppercase; }
+#footer .f2 .wraper .contactInfo .cont.noup a { color: #333; text-transform: none !important; }
+#footer .f2 .wraper .contactInfo .cont ul li { line-height: 20px; list-style-image: url(../Images/arrow.png); text-align: left; padding-bottom: 5px; }
+#footer .f2 .wraper .contactInfo .cont ul.iconPlus li { line-height: 18px; list-style-image: url(../Images/iconPlus.png); text-align: left; }
+#footer .f2 .wraper .contactInfo .cont ul li span { font: bold 9pt Arial, Helvetica, sans-serif; line-height: 20px; }
+#footer .f2 .wraper .contactInfo.addressInfo .cont { padding-left: 25px; }
+#footer .f2 .wraper .contactInfo.addressInfo .cont span { font: bold 10pt Arial, Helvetica, sans-serif; }
+#footer .f2 .wraper .contactInfo.addressInfo .cont ul { padding: 15px 0 0 35px; }
+#footer .f2 .wraper .contactInfo.addressInfo .cont ul li a { font: 10pt Arial, Helvetica, sans-serif; }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+/*============================== Start style for lib edit*/
+#footer .f2 span.grey { background: #f4f4f4; display: block; padding: 5px 10px; margin-bottom: 3px; }
+.colorRed { color: #ea1119; }
+/*=====this is style for Menusub*/
+#footer .f2 .wraper .menuBottom { display: block; padding-bottom: 5px; border-bottom: 1px solid #dddddd; text-align: left; }
+#footer .f2 .wraper .menuBottom ul { padding: 20px 0 5px 0; }
+#footer .f2 .wraper .menuBottom li { display: inline-block; }
+#footer .f2 .wraper .menuBottom li a { color: #666666; padding: 0 15px; }
+#footer .f2 .wraper .menuBottom li a:hover { color: #ea1119; text-decoration: none; }
+#footer .f2 .wraper .menuBottom li.companyShare { background: url(images/icons/icon_Share.png) no-repeat; padding-left: 20px; position: relative; padding-right: 80px; float: right; line-height: 18px; }
+#footer .f2 .wraper .menuBottom li.companyShare span { display: inline-block; }
+/*=====this is style for Company*/
+#footer .f2 .wraper .companyBottom { padding: 15px 0; }
+#footer .f2 .wraper .companyBottom li { display: inline-block; padding-right: 50px; vertical-align: middle; }
+#footer .f2 .wraper .companyBottom p { margin-bottom: 10px; }
+#footer .f2 .wraper .companyBottom p.company { background: url(images/icons/footer-home-icon.png) no-repeat; padding-left: 30px; color: #ea1119; font-size: 15px; text-transform: uppercase; font-weight: bold; }
+#footer .f2 .wraper .companyBottom p.companyAdd { background: url(images/icons/icon-location-mini-grey.png) no-repeat 4px 0; padding-left: 30px; }
+.padLeft0 { padding-left: 0 !important; }
+.padRight0 { padding-right: 0 !important; }
+.Float { float: right !important; }
