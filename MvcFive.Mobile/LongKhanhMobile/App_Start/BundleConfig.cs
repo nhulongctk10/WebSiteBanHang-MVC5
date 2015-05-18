@@ -61,6 +61,25 @@ namespace LongKhanhMobile
                       "~/Content/color-switcher.css", 
                       "~/Content/Site.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/libraryscript").Include(
+                        "~/Scripts/jquery-1.11.1.min.js",
+                        "~/Scripts/jquery-ui-1.10.4.custom.min.js",
+                        "~/Scripts/jquery.easing.min.js",
+                        "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/smoothscroll.js",
+                        "~/Scripts/jquery.validate.min.js",
+                        "~/Scripts/icheck.min.js",
+                        "~/Scripts/jquery.placeholder.js",
+                        "~/Scripts/jquery.stellar.min.js",
+                        "~/Scripts/jquery.touchSwipe.min.js",
+                        "~/Scripts/jquery.shuffle.min.js",
+                        "~/Scripts/lightGallery.min.js",
+                        "~/Scripts/owl.carousel.min.js",
+                        "~/Scripts/masterslider.min.js",
+                        "~/Scripts/mailer.js",
+                        "~/Scripts/scripts.js",
+                        "~/Scripts/color-switcher.js"));
+
         }
     }
 }
