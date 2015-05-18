@@ -125,6 +125,16 @@ namespace LongKhanhMobile.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult OrderHistory()
+        {
+            return View();
+        }
+
+        public ActionResult OrderTracking()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

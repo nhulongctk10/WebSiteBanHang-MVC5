@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "OrderTracking";
+}
+
+<!--Page Content-->
+@*<div class="page-content">*@
+
+    <!--Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li>Order tracking</li>
+    </ol><!--Breadcrumbs Close-->
+    <!--Order Tracking-->
+    <section class="container">
+        <h2>Oreder tracking</h2>
+        <div class="row">
+            <!--Form-->
+            <form method="post" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 order-tracking extra-space-bottom">
+                <div class="icon icon-compass"></div>
+                <p>Enter your Order ID in the box below and press return. This was given to you on your receipt and in the confirmation email you should have received.</p>
+                <div class="form-group">
+                    <label for="ot_id">Order ID</label>
+                    <input class="form-control" type="text" name="ot_id" id="ot_id" placeholder="Order ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="ot_email">Billing email</label>
+                    <input class="form-control" type="email" name="ot_email" id="ot_email" placeholder="Billing email" required>
+                </div>
+                <input class="btn btn-success btn-block" type="submit" value="Track order">
+            </form>
+        </div>
+    </section><!--Order Tracking Close-->
+
+@*</div>*@<!--Page Content Close-->
+
